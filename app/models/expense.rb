@@ -2,6 +2,14 @@ class Expense < ApplicationRecord
 
   validates :user_id, presence: true
   validates :amount, numericality: { greater_than: 0}
+  validates :concept, presence: true
+  validate :data_cant_be_nil
+
   belongs_to :user
 
+  def data_cant_be_nil
+    if self.date.nil?
+      self.date = Time.now
+    end
+  end
 end
