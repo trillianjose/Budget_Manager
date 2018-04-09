@@ -6,6 +6,7 @@ class Expense < ApplicationRecord
   validate :data_cant_be_nil
 
   belongs_to :user
+  belongs_to :category
 
   def data_cant_be_nil
     if self.date.nil?
