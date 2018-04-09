@@ -1,6 +1,7 @@
 class Expense < ApplicationRecord
 
   validates :user_id, presence: true
+  validates :category, presence: true
   validates :amount, numericality: { greater_than: 0}
   validates :concept, presence: true
   validate :data_cant_be_nil
