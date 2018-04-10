@@ -5,7 +5,8 @@ RSpec.describe Expense, type: :model do
     it "should belong to a user" do
       time = Time.now.freeze
       user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(6))
-      expense = Expense.new(amount: 30000, concept: "Uber", date: time, user: user)
+      category = FactoryBot.create(:category)
+      expense = Expense.new(amount: 30000, concept: "Uber", date: time, user: user, category: category)
       expect(expense.valid?).to eq(true)
       expect(expense.save).to eq(true)
       expect(Expense.count).to eq(1)
@@ -16,7 +17,8 @@ RSpec.describe Expense, type: :model do
       before do
         time = Time.now.freeze
         user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(6))
-        @expense = Expense.new(concept: "Uber", date: time, user: user)
+        category = FactoryBot.create(:category)
+        @expense = Expense.new(concept: "Uber", date: time, user: user, category: category)
       end
       context "the amount is negative" do
         it "should not save the expense" do
@@ -40,7 +42,8 @@ RSpec.describe Expense, type: :model do
       before do
         time = Time.now.freeze
         user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(6))
-        @expense = Expense.new(amount: 30000, date: time, user: user)
+        category = FactoryBot.create(:category)
+        @expense = Expense.new(amount: 30000, date: time, user: user, category: category)
       end
       context "the concept is not empty" do
         it "should save the expense" do
@@ -62,7 +65,8 @@ RSpec.describe Expense, type: :model do
     context "date related" do
       before do
         user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(6))
-        @expense = Expense.new(amount: 30000, concept: "Uber", user: user)
+        category = FactoryBot.create(:category)
+        @expense = Expense.new(amount: 30000, concept: "Uber", user: user, category: category)
       end
       context "the date is empty" do
         it "should save the expense and set the current date on the date field" do
@@ -79,6 +83,29 @@ RSpec.describe Expense, type: :model do
           expect(@expense.save).to be_truthy
           expect(@expense.date).to eq(time)
           expect(@expense.errors.messages).to be_empty
+        end
+      end
+    end
+    context "category related" do
+      before do
+        time = Time.now.freeze
+        user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(6))
+        @category = FactoryBot.create(:category)
+        @expense = Expense.new(amount: 30000, concept: "Uber", user: user, date: time)
+      end
+      context "the category appear" do
+        it "should save the expenses" do
+          @expense.category = @category
+          expect(@expense.valid?).to be_truthy
+          expect(@expense.save).to be_truthy
+          expect(@expense.errors.messages).to be_empty
+        end
+      end
+      context "category not there" do
+        it "should not save the expense" do
+          expect(@expense.valid?).to be_falsey
+          expect(@expense.save).to be_falsey
+          expect(@expense.errors).not_to be_empty
         end
       end
     end
