@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'expenses/index'
+
   get 'dashboard/index'
 
   root 'dashboard#index'
