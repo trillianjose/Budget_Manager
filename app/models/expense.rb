@@ -11,6 +11,9 @@ class Expense < ApplicationRecord
   belongs_to :category
   belongs_to :transaction_type
 
+  scope :last_six_months, -> { where("date >= ?", 6.months.ago)}
+  scope :this_month, -> { where("date >= ?", 0.month.ago.beginning_of_month)}
+
   def data_cant_be_nil
     if self.date.nil?
       self.date = Time.now
