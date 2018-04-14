@@ -1,7 +1,12 @@
-<nav>
-<a>Budget Manager</a> |
-<a><%= link_to 'Dashboard', dashboard_index_path%></a> |
-<a >Expenses</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-expensify">
+  <div class="container">
+    <a class="navbar-brand">Budget Manager</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a> <%= link_to 'Dashboard', dashboard_index_path class:"nav-item nav-link active" %></a>
+        <a class="nav-item nav-link" href="#">Expenses</a>
+      </div>
+    </div>
 </nav>
 <div class="container">
   <section>
@@ -22,5 +27,46 @@
       <span></span>
     </div>
   </section>
-  
+
+</div>
+<!-- Content here -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-expensify">
+  <div class="container">
+    <a class="navbar-brand" href="#">Expensify</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Dashboard <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">Expenses</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <section class="d-flex justify-content-around">
+    <div id="stats" class="p-2">
+      <p>$1.300.000</p>
+      <span>Today</span>
+    </div>
+    <div id="stats" class="p-2">
+      <p>$1.300.000</p>
+      <span>Today</span>
+    </div>
+    <div id="stats" class="p-2">
+      <p>$1.300.000</p>
+      <span>Today</span>
+    </div>
+    <div id="stats" class="p-2">
+      <p>$1.300.000</p>
+      <span>Today</span>
+    </div>
+  </section>
+  <section class="d-flex justify-content-around flex-wrap">
+    <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" alt=""></div>
+    <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" alt=""></div>
+    <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" alt=""></div>
+    <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" alt=""></div>
+  </section>
 </div>
