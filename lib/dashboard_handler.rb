@@ -9,5 +9,5 @@ class DashboardHandler
   def today_expenses
     @expenses.daily_expenses.pluck(:amount).sum
   end
-end
   
+end
