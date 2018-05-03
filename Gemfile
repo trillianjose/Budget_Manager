@@ -54,6 +54,7 @@ group :development do
   gem 'spring-watcher-listen'
   gem "capybara"
   gem "selenium-webdriver"
+  gem "letter_opener"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
