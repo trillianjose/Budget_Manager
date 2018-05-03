@@ -1,18 +1,4 @@
-<!-- Content here -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-expensify">
- <div class="container">
-   <a class="navbar-brand">Budget Manager</a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
-   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-     <div class="navbar-nav">
-       <a> <%= link_to 'Dashboard', dashboard_index_path, :class => "nav-item nav-link active" %><span class="sr-only">(current)</span></a>
-       <a> <%= link_to 'Expenses', expenses_index_path, :class => "nav-item nav-link active" %><span class="sr-only">(current)</span></a>
-     </div>
-   </div>
- </div>
-</nav>
+<%= render 'shared/navbar' %>
 <div class="container">
  <section class="d-flex justify-content-around">
    <div id="stats" class="p-2">
