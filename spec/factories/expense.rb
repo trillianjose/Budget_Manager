@@ -1,4 +1,4 @@
-FactoryBot define do
+FactoryBot.define do
   factory :expense do
     concept Faker::Simpsons.location
     amount Faker::Number.number(7)
