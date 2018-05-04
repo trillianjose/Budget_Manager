@@ -4,26 +4,20 @@
     <div class="col-3">
       <div class="transaction-type">
         <h4>Transaction type</h4>
+        <% @transaction_type.each do |transaction_type| %>
         <ul class="list-group">
-          <li class="list-group-item">Purchase</li>
-          <li class="list-group-item">Withdraw</li>
-          <li class="list-group-item">Transfer</li>
-          <li class="list-group-item">Payments</li>
+          <li class="list-group-item"><%= transaction_type.name %></li>
         </ul>
+        <% end %>
       </div>
       <br>
       <div class="category">
         <h4>Category</h4>
+        <% @category.each do |category| %>
         <ul class="list-group">
-          <li class="list-group-item">Restaurants</li>
-          <li class="list-group-item">Grocery</li>
-          <li class="list-group-item">Car</li>
-          <li class="list-group-item">Services</li>
-          <li class="list-group-item">Home</li>
-          <li class="list-group-item">Education</li>
-          <li class="list-group-item">Fun</li>
-          <li class="list-group-item">Travel</li>
+          <li class="list-group-item"><%= category.name %></li>
         </ul>
+        <% end %>
       </div>
     </div>
     <div class="col-9">
