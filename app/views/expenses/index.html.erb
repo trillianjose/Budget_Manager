@@ -6,7 +6,7 @@
         <h4>Transaction type</h4>
         <% @transaction_type.each do |transaction_type| %>
         <ul class="list-group">
-          <li class="list-group-item"><%= transaction_type.name %></li>
+          <li class="list-group-item" id= <%= transaction_type.name %> ><%= transaction_type.name %></li>
         </ul>
         <% end %>
       </div>
@@ -15,7 +15,7 @@
         <h4>Category</h4>
         <% @category.each do |category| %>
         <ul class="list-group">
-          <li class="list-group-item"><%= category.name %></li>
+          <li class="list-group-item" id= <%= category.name %> ><%= category.name %></li>
         </ul>
         <% end %>
       </div>
