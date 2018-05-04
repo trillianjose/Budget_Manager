@@ -1,27 +1,27 @@
-<%= render '/shared/navbar' %>
+<%= render 'shared/navbar' %>
 <div class="container">
  <section class="d-flex justify-content-around">
    <div id="stats" class="p-2">
-     <p>$1.300.000</p>
+     <p><%= number_to_currency(@today_expenses) %></p>
      <span>Today</span>
    </div>
    <div id="stats" class="p-2">
-     <p>$1.300.000</p>
-     <span>Today</span>
+     <p><%= number_to_currency(@yesterday_expenses) %></p>
+     <span>Yesterday</span>
    </div>
    <div id="stats" class="p-2">
-     <p>$1.300.000</p>
-     <span>Today</span>
+     <p><%= number_to_currency(@this_month_expenses) %></p>
+     <span>This Month</span>
    </div>
    <div id="stats" class="p-2">
-     <p>$1.300.000</p>
-     <span>Today</span>
+     <p><%= number_to_currency(@last_month_expenses) %></p>
+     <span>Last Month</span>
    </div>
  </section>
- <section class="d-flex justify-content-around flex-wrap">
-   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" alt=""></div>
-   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" alt=""></div>
-   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" alt=""></div>
-   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" alt=""></div>
+ <section class="d-flex justify-content-around flex-wrap" id="Graph_tables">
+   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" id="Last_six_month"></div>
+   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" id="By_day"></div>
+   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" id="By_category"></div>
+   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" id="Accumulated"></div>
  </section>
 </div>

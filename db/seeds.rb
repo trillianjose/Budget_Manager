@@ -9,9 +9,9 @@ require 'faker'
 t = TransactionType.create([{name: 'Purchase'}, {name: 'Withdrawal' }, {name: 'Transfer'}, {name: 'Payment'}])
 c = Category.create([{name: 'Restaurants' }, { name: 'Grocery' }, { name: 'Car' }, { name: 'Services' }, { name: 'Home' }, { name: 'Education' }, { name: 'Fun' }, { name: 'Travel' }])
 
-5.times do |u|
+1.times do |u|
   u = User.create(email: Faker::Internet.email,password: Faker::Internet.password)
   600.times do |i|
-    Expense.create(user_id: u.id, amount: Faker::Number.number(8), concept: Faker::DrWho.quote, date: Faker::Date.between(6.month.ago, Date.today), category: c.sample, transaction_type: t.sample)
+    Expense.create(user_id: u.id, amount: Faker::Number.number(8), concept: Faker::LeagueOfLegends.quote, date: Faker::Date.between(10.month.ago, Date.today), category: c.sample, transaction_type: t.sample)
    end
 end

@@ -1,0 +1,13 @@
+<tbody>
+  <% @expenses.each do |expense| %>
+  <tr>
+    <th class="show_date"><%= expense.date.strftime("%d %a") %></th>
+    <td>
+      <p class="transactiontable text-muted"><%= expense.transaction_type.name %></p>
+      <%= expense.concept %>
+    </td>
+    <td><%= expense.category.name %></td>
+    <td><%= number_to_currency(expense.amount) %></td>
+  </tr>
+  <% end %>
+</tbody>
