@@ -1,10 +1,12 @@
+require '../lib/dashboard_handler'
 class DashboardController < ApplicationController
 
   def index
-    @today_expenses = DashboardHandler.today_expenses
-    @yesterday_expenses = DashboardHandler.yesterday_expenses
-    @this_month_expenses = DashboardHandler.this_month_expenses
-    @last_month_expenses = DashboardHandler.last_month_expenses
+    handler = DashboardHandler.new(Expense.all)
+    @today_expenses = handler.today_expenses
+    @yesterday_expenses = handler.yesterday_expenses
+    @this_month_expenses = handler.this_month_expenses
+    @last_month_expenses = handler.last_month_expenses
   end
 
 end
