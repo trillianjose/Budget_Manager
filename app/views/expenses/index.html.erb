@@ -1,1 +1,78 @@
 <%= render 'shared/navbar' %>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <div class="transaction-type">
+        <h4>Transaction type</h4>
+        <% @transaction_type.each do |transaction_type| %>
+        <ul class="list-group">
+          <li class="list-group-item" id= <%= transaction_type.name %> ><%= transaction_type.name %></li>
+        </ul>
+        <% end %>
+      </div>
+      <br>
+      <div class="category">
+        <h4>Category</h4>
+        <% @category.each do |category| %>
+        <ul class="list-group">
+          <li class="list-group-item" id= <%= category.name %> ><%= category.name %></li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-9">
+      <section class="d-flex justify-content-around">
+        <div id="stats" class="p-2">
+          <p><%=  %></p>
+          <span>Total</span>
+        </div>
+        <div id="stats" class="p-2">
+          <p>$1.300.000</p>
+          <span>Transactions</span>
+        </div>
+        <div id="stats" class="p-2">
+          <p>$1.300.000</p>
+          <span>Average</span>
+        </div>
+      </section>
+      <div id="margin_buttons" class="d-flex justify-content-between">
+          <button class="btn btn-dark"><%= link_to ' + New Expense ', expenses_path, :class => "nav-item nav-link active" %></button>
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Dropdown button
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </div>
+      </div>
+
+      <section class="expenses-list">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Concept</th>
+              <th scope="col">Category</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @expenses.each do |expense| %>
+            <tr>
+              <th><%= expense.date.strftime("%d %a") %></th>
+              <td>
+                <p class="transactiontable text-muted"><%= expense.transaction_type.name %></p>
+                <%= expense.concept %>
+              </td>
+              <td><%= expense.category.name %></td>
+              <td><%= number_to_currency(expense.amount) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+</div>

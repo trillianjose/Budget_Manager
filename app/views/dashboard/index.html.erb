@@ -2,20 +2,20 @@
 <div class="container">
  <section class="d-flex justify-content-around">
    <div id="stats" class="p-2">
-     <p>$1.300.000</p>
+     <p><%= number_to_currency(@today_expenses) %></p>
      <span>Today</span>
    </div>
    <div id="stats" class="p-2">
-     <p>$1.300.000</p>
-     <span>Today</span>
+     <p><%= number_to_currency(@yesterday_expenses) %></p>
+     <span>Yesterday</span>
    </div>
    <div id="stats" class="p-2">
-     <p>$1.300.000</p>
-     <span>Today</span>
+     <p><%= number_to_currency(@this_month_expenses) %></p>
+     <span>This Month</span>
    </div>
    <div id="stats" class="p-2">
-     <p>$1.300.000</p>
-     <span>Today</span>
+     <p><%= number_to_currency(@last_month_expenses) %></p>
+     <span>Last Month</span>
    </div>
  </section>
  <section class="d-flex justify-content-around flex-wrap">
