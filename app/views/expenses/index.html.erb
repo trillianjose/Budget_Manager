@@ -6,16 +6,16 @@
         <h4>Transaction type</h4>
         <% @transaction_type.each do |transaction_type| %>
         <ul class="list-group">
-          <li class="list-group-item" id= <%= transaction_type.name %> ><%= transaction_type.name %></li>
+          <li class="transaction_type list-group-item" id= <%= transaction_type.name %> ><%= transaction_type.name %></li>
         </ul>
         <% end %>
       </div>
       <br>
-      <div class="category">
+      <div class="category-type">
         <h4>Category</h4>
         <% @category.each do |category| %>
         <ul class="list-group">
-          <li class="list-group-item" id= <%= category.name %> ><%= category.name %></li>
+          <li class="category list-group-item" id= <%= category.name %> ><%= category.name %></li>
         </ul>
         <% end %>
       </div>
@@ -47,22 +47,51 @@
             </div>
           </div>
       </div>
-
-      <section class="expenses-list">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Concept</th>
-              <th scope="col">Category</th>
-              <th scope="col">Value</th>
-            </tr>
-          </thead>
-          <div class="expense_table">
-            <%= render 'expenses_list' %>
-          </div>
-        </table>
-      </section>
+      <div class="expense_table">
+        <%= render partial: 'expenses_list', locals: { expenses: @expenses} %>
+      </div>
     </div>
   </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $(".transaction_type").on('click', function(e){
+      $(".active").removeClass("active");
+      var filter = this.id;
+      var tag_button = $(this);
+      tag_button.addClass("active");
+      var param = {"transaction_type": filter };
+      e.preventDefault();
+      $.ajax({
+        type: "GET",
+        url: "/expenses.js",
+        dataType: "html",
+        data: param,
+        success: function(response) {
+          $(".expense_table").empty();
+          $(".expense_table").html(response);
+        }
+      });
+    });
+  });
+  $(document).ready(function() {
+    $(".category").on('click', function(e){
+      $(".active").removeClass("active");
+      var filter = this.id;
+      var tag_button = $(this);
+      tag_button.addClass("active");
+      var param = {"category": filter };
+      e.preventDefault();
+      $.ajax({
+        type: "GET",
+        url: "/expenses.js",
+        dataType: "html",
+        data: param,
+        success: function(response) {
+          $(".expense_table").empty();
+          $(".expense_table").html(response);
+        }
+      });
+    });
+  });
+</script>
