@@ -16,7 +16,7 @@ class Expense < ApplicationRecord
   scope :by_category_this_month, -> { this_month.group_by { |expense| expense.category.name}}
   scope :by_category_last_six_month, -> { last_six_months.group_by { |expense| expense.category.name}}
   scope :by_transaction_this_month, -> { this_month.group_by { |expense| expense.transaction_type.name}}
-  scope :by_transaction_last_six_month, -> { last_six_months.group_by { |expense| expense.transaction_type.name}}
+  scope :by_transaction_last_six_month, -> { last_six_months.group_by { |expense| expense.transaction_type.name} }
   scope :last_month, -> { where("date >= ? and date >= ?", 1.month.ago.beginning_of_month, 1.month.ago.end_of_month)}
   scope :amount_last_month, -> {last_month.pluck(:amount).sum }
   scope :amount_this_month, -> {this_month.pluck(:amount).sum }

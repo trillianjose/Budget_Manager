@@ -11,7 +11,7 @@ c = Category.create([{name: 'Restaurants' }, { name: 'Grocery' }, { name: 'Car' 
 
 1.times do |u|
   u = User.create(email: Faker::Internet.email,password: Faker::Internet.password)
-  600.times do |i|
-    Expense.create(user_id: u.id, amount: Faker::Number.number(8), concept: Faker::LeagueOfLegends.quote, date: Faker::Date.between(10.month.ago, Date.today), category: c.sample, transaction_type: t.sample)
+  900.times do |i|
+    Expense.create(user_id: u.id, amount: Faker::Number.number(7), concept: Faker::LeagueOfLegends.quote, date: Faker::Date.between(10.month.ago, Date.today), category: c.sample, transaction_type: t.sample)
    end
 end

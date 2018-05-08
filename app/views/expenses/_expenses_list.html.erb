@@ -1,13 +1,25 @@
-<tbody>
-  <% @expenses.each do |expense| %>
-  <tr>
-    <th class="show_date"><%= expense.date.strftime("%d %a") %></th>
-    <td>
-      <p class="transactiontable text-muted"><%= expense.transaction_type.name %></p>
-      <%= expense.concept %>
-    </td>
-    <td><%= expense.category.name %></td>
-    <td><%= number_to_currency(expense.amount) %></td>
-  </tr>
-  <% end %>
-</tbody>
+<section class="expenses-list">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Concept</th>
+        <th scope="col">Category</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% expenses.each do |expense| %>
+      <tr>
+        <th class="show_date"><%= expense.date.strftime("%d %b") %></th>
+        <td>
+          <p class="transactiontable text-muted"><%= expense.transaction_type.name %></p>
+          <%= expense.concept %>
+        </td>
+        <td><%= expense.category.name %></td>
+        <td><%= number_to_currency(expense.amount) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

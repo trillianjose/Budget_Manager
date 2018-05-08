@@ -1,7 +1,7 @@
 // Place all the styles related to the expenses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.transaction-type ul .list-group-item, .category ul .list-group-item{
+.transaction-type ul .list-group-item, .category-type ul .list-group-item{
   background-color: #36343d;
   color: white;
   border: 1px solid #ccc;
@@ -27,4 +27,28 @@
 
 #stats {
   margin-bottom: 20px;
+}
+
+li.transaction_type:hover {
+    background: #898e8c;
+}
+
+li.transaction_type.active {
+    background: #898e8c;
+}
+
+li.transaction_type {
+    cursor: pointer;
+}
+
+li.category:hover {
+    background: #898e8c;
+}
+
+li.category {
+    cursor: pointer;
+}
+
+li.category.active {
+    background: #898e8c;
 }
