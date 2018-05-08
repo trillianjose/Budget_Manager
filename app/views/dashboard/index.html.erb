@@ -19,7 +19,7 @@
    </div>
  </section>
  <section class="d-flex justify-content-around flex-wrap" id="Graph_tables">
-   <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" id="Last_six_month"></div>
+   <div class="graphs"><%= column_chart last_six_month_expenses_by_transaction(created_at, format: "%a").count %> id="Last_six_month"></div>
    <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" id="By_day"></div>
    <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" id="By_category"></div>
    <div class="graphs"><img src="http://3.bp.blogspot.com/_9xxJMmrkNnU/Ss_aqJPptkI/AAAAAAAAAgk/H0zXVNxYHa8/s400/Diapositiva8.jpg" id="Accumulated"></div>
