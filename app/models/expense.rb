@@ -22,6 +22,7 @@ class Expense < ApplicationRecord
   scope :amount_this_month, -> {this_month.pluck(:amount).sum }
   scope :daily_expenses, -> {where('date >=?', 1.day.ago.end_of_day)}
   scope :yesterday_expenses, -> {where('date between ? and ?', 1.day.ago.beginning_of_day, 1.day.ago.end_of_day)}
+  scope :last_two_months, -> { where("date >= ?", 1.month.ago.beginning_of_month)}
 
   def data_cant_be_nil
     if self.date.nil?
