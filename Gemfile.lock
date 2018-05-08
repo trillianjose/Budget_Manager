@@ -90,6 +90,8 @@ GEM
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (4.0.1)
+      activesupport (>= 4.2)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -239,6 +241,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
+  groupdate
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener
