@@ -40,7 +40,6 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem "database_cleaner"
   gem "rspec-rails"
 end
@@ -63,3 +62,4 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'chartkick'
 gem 'groupdate'
+gem 'faker'
