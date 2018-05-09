@@ -22,6 +22,6 @@
    <div class="graphs" id='last_six_months'><%= column_chart @handler.last_six_month.joins(:transaction_type).group('transaction_types.name').group_by_month(:date, format: "%b").sum(:amount), stacked: true %></div>
    <div class="graphs" id='By_day'><%= column_chart @handler.this_month.joins(:transaction_type).group('transaction_types.name').group_by_day(:date, format: "%d").sum(:amount) %></div>
    <div class="graphs" id="By_category"><%= pie_chart @handler.this_month.joins(:transaction_type).group('transaction_types.name').count %></div>
-   <div class="graphs" id="Accumulated"><%= area_chart @handler.last_two_months.group_by_week(:date).sum(:amount) %> </div>
+   <div class="graphs" id="Accumulated"><%= area_chart [{name: "April", data: @handler.last_month.group_by_day(:date).sum(:amount)}, {name: "May", data: @handler.this_month.group_by_day(:date).sum(:amount)}] %> </div>
  </section>
 </div>

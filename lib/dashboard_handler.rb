@@ -49,4 +49,8 @@ class DashboardHandler
   def last_two_months
       @expenses.last_two_months
   end
+
+  def last_month
+    @expenses.last_month
+  end
 end
